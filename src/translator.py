@@ -1,14 +1,16 @@
 from langdetect import detect
 from googletrans import Translator
 
+
 def detect_and_translate(text):
     language = detect(text)
 
-    if language != 'en':
+    if language != "en":
+        # Create a translator
         translator = Translator()
-        translated_text = translator.translate(text, dest='en').text
+        # Translate the text to English
+        translated_text = translator.translate(text, dest="en").text
         return translated_text
-    else:
-        return text
 
-
+    # If the text is already in English, return it as it is
+    return text
